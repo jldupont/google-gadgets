@@ -15,7 +15,9 @@
   <UserPref name="height" display_name="Height"       default_value="500"  datatype="string" />    
     
   <Content type="html"><![CDATA[
+    <div id='moderator-embed-target'></div>  
     <script type='text/javascript' src='http://www.google.com/moderator/static/moderator-embed-api.js' />
+    
     <script type="text/javascript">
       var prefs=new gadgets.Prefs();
       var modid=prefs.getString("modid");
@@ -27,7 +29,7 @@
       mod.height = height;
       mod.embed("moderator-embed-target");
     </script>      
-    <div id='moderator-embed-target'></div>    
+    
     ]]>
   </Content>
 </Module>
