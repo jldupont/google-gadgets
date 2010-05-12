@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+  <ModulePrefs title="Google Moderator" 
+  author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+  description="http://www.google.com/support/moderator/"
+  height="500" width="1000" scaling="false" 
+  thumbnail=""
+  screenshot=""
+  title_url="http://www.systemical.com/"
+/>
+      
+  <UserPref name="modid"  display_name="Moderator ID" default_value="6133" datatype="string" />
+  <UserPref name="width"  display_name="Width"        default_value="1000" datatype="string" />  
+  <UserPref name="height" display_name="Height"       default_value="500"  datatype="string" />    
+    
+  <Content type="html"><![CDATA[
+    <script type='text/javascript' src='http://www.google.com/moderator/static/moderator-embed-api.js' />
+    <script type="text/javascript">
+      var prefs=new gadgets.Prefs();
+      var modid=prefs.getString("modid");
+      var width=prefs.getString("width");        
+      var height=prefs.getString("height");                
+      var mod = new MODERATOR("http://www.google.com/moderator/#16/e="+modid);
+      mod.hl = 'en';
+      mod.width = width;  
+      mod.height = height;
+      mod.embed("moderator-embed-target");
+    </script>      
+    <div id='moderator-embed-target'></div>    
+    ]]>
+  </Content>
+</Module>
