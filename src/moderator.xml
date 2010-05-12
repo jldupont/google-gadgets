@@ -16,7 +16,7 @@
     
   <Content type="html"><![CDATA[
     <div id='moderator-embed-target'></div>  
-    <script type='text/javascript' src='http://www.google.com/moderator/static/moderator-embed-api.js' />
+    <script type='text/javascript' src='http://www.google.com/moderator/static/moderator-embed-api.js'></script>
     
     <script type="text/javascript">
       var prefs=new gadgets.Prefs();
