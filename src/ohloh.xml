@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module> 
+  <ModulePrefs title="Ohloh Account Profile Badge" 
+	author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+	description="Ohloh Account Information Badge. Configure a valid Ohloh 'account id'."
+	height="35" width="190" scaling="false" 
+	thumbnail="http://lh5.ggpht.com/_bLwRtcZS8No/S-bsFYs5uRI/AAAAAAAAAXE/uAk4kYsneIU/ohlohtx2.png"
+	screenshot="http://lh3.ggpht.com/_bLwRtcZS8No/S-bsFis2F6I/AAAAAAAAAXI/WUDea_VQASk/ohloh_jld.png"
+	title_url="http://www.systemical.com/"  
+  /> 
+  <UserPref name="account_number" display_name="Ohloh Account Number" default_value="13446" datatype="string" /> 
+  
+  <Content type="html"> 
+    <![CDATA[ 
+    <div id="bid"></div> 
+    <script type="text/javascript">
+    	function boot() { 
+	      var prefs=new gadgets.Prefs();
+	      var aid=prefs.getString("account_number");
+	      var be=document.getElementById("bid");
+	      var anchor="<a href='https://www.ohloh.net/accounts/"+aid+"?ref=Detailed'><img alt='Ohloh profile' width='191' src='https://www.ohloh.net/accounts/"+aid+"/widgets/account_detailed.gif' height='35'/></a>";
+	      be.innerHTML=anchor;
+      	}
+		gadgets.util.registerOnLoadHandler(boot);      
+    </script> 
+    ]]>
+  </Content> 
+</Module>

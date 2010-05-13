@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module> 
+  <ModulePrefs title="Stackoverlow Profile Flair" 
+	author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+	description="http://stackoverflow.com/ profile flair. Configure a valid 'account id'."
+	height="90" width="190" scaling="false" 
+	thumbnail="http://lh4.ggpht.com/_bLwRtcZS8No/S-bx174KZ5I/AAAAAAAAAXg/TkdqO6cLssY/stackoverflow_glossy_1.png"
+	screenshot="http://lh4.ggpht.com/_bLwRtcZS8No/S-bx1zyCQPI/AAAAAAAAAXk/k9xpKnMmSMw/stackoverflow_badge.png"
+  	title_url="http://www.systemical.com/"	
+  /> 
+  <UserPref name="account_number" display_name="Stackoverflow Account Id" default_value="171461" datatype="string" /> 
+  
+  <Content type="html"> 
+    <![CDATA[ 
+	<div id="place"></div> 
+    <script type="text/javascript">
+
+		function boot() {			
+			var prefs=new gadgets.Prefs();
+			var aid=prefs.getString("account_number");
+			var place=document.getElementById("place");
+			
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "http://stackoverflow.com/users/flair/"+aid+".js?theme=default";
+			place.appendChild(script);
+		}
+		gadgets.util.registerOnLoadHandler(boot);				      
+    </script> 
+    ]]>
+  </Content> 
+</Module>

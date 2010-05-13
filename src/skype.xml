@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module> 
+  <ModulePrefs title="Skype Online Status" height="40" width="180" scaling="false" 
+  author="Jean-Lou Dupont" author_email="gadgets@jldupont.com"
+  description="Skype Button with online status. Just configure the 'username'."
+  thumbnail="http://lh4.ggpht.com/_bLwRtcZS8No/S-S4bxUkSOI/AAAAAAAAAW0/oP094SutWG0/skype_logo.png"
+  screenshot="http://lh4.ggpht.com/_bLwRtcZS8No/S-S4bxUkSOI/AAAAAAAAAW0/oP094SutWG0/skype_logo.png"
+  title_url="http://www.systemical.com/"
+  /> 
+ 
+  <UserPref name="username" display_name="Skype username" default_value="skype_user" datatype="string" /> 
+  <Content type="html"><![CDATA[ 
+  
+	<div id="skype_button"></div> 
+	     
+	<script type="text/javascript"> 
+		        
+		function boot() {
+			var prefs = new gadgets.Prefs();
+			var username = prefs.getString("username");
+			var be=document.getElementById("skype_button");
+			
+			// Anchor first
+			var un=escape(username);
+			var anchor="<a href='skype:"+username+"?call'><img src='http://mystatus.skype.com/bigclassic/"+un+"' style='border: none;' width='182' height='44' alt='My status' /></a>";
+			be.innerHTML=anchor;
+		 
+			// Script second
+			var head = document.getElementsByTagName("head")[0];
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "http://download.skype.com/share/skypebuttons/js/skypeCheck.js";
+			head.appendChild(script);		
+		}
+        
+      gadgets.util.registerOnLoadHandler(boot);	
+      </script> 
+  ]]> 
+  </Content> 
+</Module> 
+  

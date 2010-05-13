@@ -19,15 +19,19 @@
     <script type='text/javascript' src='http://www.google.com/moderator/static/moderator-embed-api.js'></script>
     
     <script type="text/javascript">
-      var prefs=new gadgets.Prefs();
-      var modid=prefs.getString("modid");
-      var width=prefs.getString("width");        
-      var height=prefs.getString("height");                
-      var mod = new MODERATOR("http://www.google.com/moderator/#16/e="+modid);
-      mod.hl = 'en';
-      mod.width = width;  
-      mod.height = height;
-      mod.embed("moderator-embed-target");
+    
+	    function boot() {
+	      var prefs=new gadgets.Prefs();
+	      var modid=prefs.getString("modid");
+	      var width=prefs.getString("width");        
+	      var height=prefs.getString("height");                
+	      var mod = new MODERATOR("http://www.google.com/moderator/#16/e="+modid);
+	      mod.hl = 'en';
+	      mod.width = width;  
+	      mod.height = height;
+	      mod.embed("moderator-embed-target");
+		}      
+		gadgets.util.registerOnLoadHandler(boot);
     </script>      
     
     ]]>

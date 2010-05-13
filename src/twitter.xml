@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module> 
+  <ModulePrefs title="Twitter Profile" 
+  author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+  description="http://twitter.com/ profile flair with latest tweets list."
+  height="300" width="250" scaling="false" 
+  thumbnail="http://lh6.ggpht.com/_bLwRtcZS8No/S-g9mdmA7lI/AAAAAAAAAYI/PN3Qj9GdivE/twitter-icon-sm.png"
+  screenshot="http://lh5.ggpht.com/_bLwRtcZS8No/S-g9mG2gw1I/AAAAAAAAAYE/wrCtVkts8xQ/twitter_profile.png"
+  title_url="http://www.systemical.com/"
+  /> 
+  <UserPref name="username" display_name="Username" default_value="jldupont" datatype="string" /> 
+  <UserPref name="width"    display_name="Width"    default_value="250"      datatype="string" />  
+  <UserPref name="height"   display_name="Height"   default_value="300"      datatype="string" />    
+  <UserPref name="sback"   display_name="Shell Background Color"   default_value="#333333"      datatype="string" />  
+  <UserPref name="scolor"  display_name="Shell Color"              default_value="#ffffff"      datatype="string" />  
+  
+  <UserPref name="tback"   display_name="Tweets Background Color"  default_value="#1b4b54"      datatype="string" />  
+  <UserPref name="tcolor"  display_name="Tweets Color"             default_value="#ffffff"      datatype="string" />    
+  <UserPref name="tlinks"  display_name="Tweets Link Color"        default_value="#1bb2e0"      datatype="string" />    
+    
+  <Content type="html"> 
+    <![CDATA[ 
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script> 
+      
+    <script type="text/javascript">
+    
+    	function boot() { 
+			var prefs=new gadgets.Prefs();
+			var username=prefs.getString("username");
+			var width=prefs.getString("width");        
+			var height=prefs.getString("height");                
+			var sback=prefs.getString("sback");  
+			var scolor=prefs.getString("scolor");  
+			var tback=prefs.getString("tback");  
+			var tcolor=prefs.getString("tcolor");  
+			var tlinks=prefs.getString("tlinks");          
+	 
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 4,
+			  interval: 6000,
+			  width: width,
+			  height: height,
+			  theme: {
+			    shell: {
+			      background: sback,
+			      color: scolor
+			    },
+			    tweets: {
+			      background: tback,
+			      color: tcolor,
+			      links: tlinks
+			    }
+			  },
+			  features: {
+			    scrollbar: false,
+			    loop: false,
+			    live: true,
+			    hashtags: true,
+			    timestamp: false,
+			    avatars: false,
+			    behavior: 'all'
+			  }
+			}).render().setUser(username).start();
+		}
+		
+      gadgets.util.registerOnLoadHandler(boot);
+	</script>                                
+    ]]>
+  </Content> 
+</Module>
