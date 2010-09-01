@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+  <ModulePrefs title="Get Parent Container Source URL" 
+  author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+  description="Retrieves the parent source url"
+  height="500" width="1000" scaling="false" 
+  title_url="http://www.systemical.com/"
+/>
+      
+  <Content type="html"><![CDATA[
+
+    <script type="text/javascript">
+    
+	    function boot() {
+	    	try {
+	    		var parent=gadgets.util.getUrlParameters().parent;
+	    		alert(parent);
+	    	} catch(err) {
+	    		alert("Exception: "+err);
+	    	}
+		}      
+		gadgets.util.registerOnLoadHandler(boot);
+
+    </script>      
+    
+    ]]>
+  </Content>
+</Module>
