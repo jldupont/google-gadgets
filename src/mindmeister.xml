@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+  <ModulePrefs title="MindMeister" 
+  author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+  description="MindMeister embeddable gadget"
+  height="600" width="600" scaling="false" 
+  title_url="http://www.systemical.com/"
+/>
+      
+  <UserPref name="mapid"  display_name="Map ID" default_value="30304643" datatype="string" />
+  <UserPref name="width"  display_name="Width"        default_value="600" datatype="string" />  
+  <UserPref name="height" display_name="Height"       default_value="600"  datatype="string" />    
+    
+  <Content type="html"><![CDATA[
+  
+  	<!--
+  	<iframe width="600" height="400" frameborder="0" 
+  		src="http://www.mindmeister.com/maps/public_map_shell/119259014/test-platforms?width=600&height=400&z=auto" 
+  		scrolling="no" style="overflow:hidden"></iframe> 
+  	-->
+  	
+    <div id='mindmeister-embed-target'></div>  
+    <script type="text/javascript">
+    
+	    function boot() {
+			var prefs=new gadgets.Prefs();
+			var mapid=prefs.getString("mapid");
+			var width=prefs.getString("width");        
+			var height=prefs.getString("height");
+
+			var src="http://www.mindmeister.com/maps/public_map_shell/"+mapid+"?width="+width+"&height="+height+"&z=auto"; 	
+			
+			var iframe = document.createElement("iframe");
+			iframe.width=width;
+			iframe.height=height;
+			iframe.frameborder="0";
+			iframe.scrolling="no";
+			iframe.style="overflow:hidden";
+			iframe.src=src;
+			
+			var place=document.getElementById("mindmeister-embed-target");   
+			place.appendChild(iframe);                   
+		}
+		      
+		gadgets.util.registerOnLoadHandler(boot);
+    </script>      
+    
+    ]]>
+  </Content>
+</Module>
