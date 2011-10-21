@@ -8,9 +8,10 @@
   title_url="http://www.systemical.com/"
 />
       
-  <UserPref name="mapid"  display_name="Map ID" default_value="30304643" datatype="string" />
-  <UserPref name="width"  display_name="Width"        default_value="600" datatype="string" />  
-  <UserPref name="height" display_name="Height"       default_value="600"  datatype="string" />    
+  <UserPref name="mapid"  display_name="Map ID"         default_value="30304643" datatype="string" />
+  <UserPref name="width"  display_name="Width"          default_value="600"      datatype="string" />  
+  <UserPref name="height" display_name="Height"         default_value="600"      datatype="string" />
+  <UserPref name="live"   display_name="Live Updating?" default_value="true"     datatype="bool" />     
     
   <Content type="html"><![CDATA[
   
@@ -28,8 +29,10 @@
 			var mapid=prefs.getString("mapid");
 			var width=prefs.getString("width");        
 			var height=prefs.getString("height");
+			var blive=prefs.getBool("live");
+			var live=(blive=="true" ? 1:0);
 
-			var src="http://www.mindmeister.com/maps/public_map_shell/"+mapid+"?width="+width+"&height="+height+"&z=auto"; 	
+			var src="http://www.mindmeister.com/maps/public_map_shell/"+mapid+"?width="+width+"&height="+height+"&z=auto&live_update="+live; 	
 			
 			var iframe = document.createElement("iframe");
 			iframe.width=width;
