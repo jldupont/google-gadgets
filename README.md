@@ -8,6 +8,7 @@ Collection of my Google Gadgets
 * Skype Account Information
 * Twitter flair with latest tweets
 * MindMeister mind-map
+* github Gist : available [here](http://hosting.gmodules.com/ig/gadgets/file/105133221414279969339/github_gist.xml)
 
 [Google Gadget on Google Code](http://code.google.com/apis/gadgets/index.html)
 
