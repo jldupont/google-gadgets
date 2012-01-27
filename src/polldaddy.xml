@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module> 
+  <ModulePrefs title="Polldaddy" 
+	author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+	description="http://polldaddy.com/ poll sharing. Configure a valid 'poll id'."
+	height="90" width="190" scaling="false" 
+	thumbnail="https://lh3.googleusercontent.com/-hydoE5-6a0U/TyAZCr2oNhI/AAAAAAAAJG0/SvwUh-QCzWI/s800/polldaddy.png"
+  	title_url="http://www.systemical.com/"	
+  /> 
+  <UserPref name="poll_id" display_name="Poll Id" default_value="5096163" datatype="string" /> 
+  
+  <Content type="html"> 
+    <![CDATA[ 
+	<div id="place"></div> 
+    <script type="text/javascript">
+
+		function boot() {			
+			var prefs=new gadgets.Prefs();
+			var aid=prefs.getString("poll_id");
+			var place=document.getElementById("place");
+			
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "http://static.polldaddy.com/p/"+aid+".js";
+			script.charset="utf-8";
+			place.appendChild(script);
+		}
+		gadgets.util.registerOnLoadHandler(boot);				      
+    </script> 
+    ]]>
+  </Content> 
+</Module>

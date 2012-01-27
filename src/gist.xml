@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs 
+		title="Gist.GitHub Gadget"
+		description="Github Gist"
+		author="Jean-Lou Dupont" author_email="jeanlou.dupont@gmail.com"
+		thumbnail="https://lh4.googleusercontent.com/--K3NcpMATT8/TyH6EpzsfGI/AAAAAAAAJHY/AOyebA7NkhQ/s144/logo_gist.png"
+		title_url="http://www.systemical.com/"
+		>
+		<Require feature="dynamic-height" />
+	</ModulePrefs>
+	<UserPref name="gistId" display_name="Gist #" required="true" />
+	<Content type="html">
+<![CDATA[ 
+<div id="content_div"> 
+
+<script src="http://gist.github.com/__UP_gistId__.js"></script>
+
+<script type="text/javascript">
+  gadgets.util.registerOnLoadHandler(gadgets.window.adjustHeight);
+</script>
+
+</div>
+  ]]>
+	</Content>
+</Module>
